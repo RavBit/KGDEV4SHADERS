@@ -2,8 +2,6 @@
 	Properties {
 		_Color ("Color", Color) = (1,1,1,1)
 		_MainTex ("Albedo (RGB)", 2D) = "white" {}
-		_OutlineColor("Outline Color", Color) = (0,0,0,1)
-		_Outline ("Outline width", Range(0, 1)) = .1
 		_Ramp("Shading Ramp", 2D) = "gray" {}
 	}
 
@@ -54,7 +52,6 @@
 			};
 
 			void surf(Input IN, inout SurfaceOutput o) {
-				// Albedo comes from a texture tinted by color
 				fixed4 c = tex2D(_MainTex, IN.uv_MainTex) * _Color;
 				o.Albedo = c.rgb;
 				o.Alpha = c.a;
